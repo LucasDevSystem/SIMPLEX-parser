@@ -5,6 +5,21 @@ const readline = require("readline");
 
 // O metodo e o dataset teve como base o video: "Método Simplex - Exemplo 1 (Maximização" do canal Simula EEL
 
+// restricoes 
+/*
+
+max 10X1 +20X2 + 30X3
+
+2X1 + 2X2 + 4x3 <= 300
+4X2 + 3X3 <= 200
+X1 <= 20
+4X1 + 3X2  <= 200
+
+X1, X2,X3 >= 0
+
+*/
+// dataset com a funcao objetivo rescrita 
+// e tambem com as vaveriaveis de folga
 let dataset: any = [
   {
     pivo: "f1",
@@ -80,7 +95,6 @@ while (!foiResolvido) {
   );
   dataset = substituirLinha(dataset, novaLinha, linhaPivo.pivo);
   console.table(dataset);
-
 
   const proximaLinhaPivo = dataset.find(
     (linha: any) => linha["pivo"] === linhaPivo.pivo
